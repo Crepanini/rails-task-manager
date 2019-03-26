@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Task.delete_all if Rails.env.development?
+10.times do
+  Task.create!(title: Faker::Hacker.verb, details: Faker::Hacker.say_something_smart)
+end
+
+# 10.times do
+#   task
+# end
+
+puts "you have created #{Task.count} tasks"
